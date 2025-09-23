@@ -1,0 +1,6 @@
+[
+  {
+    "name": "hello-world",
+    "imageUri": "public.ecr.aws/c5s2w1z7/hello-repository"
+  }
+]
