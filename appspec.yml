@@ -1,0 +1,26 @@
+version: 0.0
+os: linux
+files:
+    - source: /
+      destination: /home/admin/yt-medibook
+
+hooks:
+    ApplicationStop:
+        - location: scripts/stop.sh
+          timeout: 60
+          runas: admin
+
+    BeforeInstall:
+        - location: scripts/install.sh
+          timeout: 120
+          runas: admin
+
+    ApplicationStart:
+        - location: scripts/start.sh
+          timeout: 300
+          runas: admin
+
+    ValidateService:
+        - location: scripts/validate.sh
+          timeout: 60
+          runas: admin
