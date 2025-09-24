@@ -1,0 +1,31 @@
+services:
+    pgsql:
+        image: 'postgres:17'
+        ports:
+            - '5432:5432'
+        environment:
+            PGPASSWORD: b7)*Kk9dc&
+            POSTGRES_DB: medibook
+            POSTGRES_USER: medibook
+            POSTGRES_PASSWORD: b7)*Kk9dc&
+        volumes:
+            - 'medibook-pgsql:/var/lib/postgresql/data'
+        networks:
+            - medibook
+        healthcheck:
+            test:
+                - CMD
+                - pg_isready
+                - '-q'
+                - '-d'
+                - 'medibook'
+                - '-U'
+                - 'medibook'
+            retries: 3
+            timeout: 5s
+networks:
+    medibook:
+        driver: bridge
+volumes:
+    medibook-pgsql:
+        driver: local
