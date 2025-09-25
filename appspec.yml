@@ -8,7 +8,7 @@ hooks:
           runas: admin
 
     BeforeInstall:
-        - location: scripts/install.sh
+        - location: scripts/pull.sh
           timeout: 120
           runas: admin
 
